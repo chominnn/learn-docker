@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "pages:deploy": "echo 'out'",
     "start": "next start",
     "lint": "eslint"
   },
