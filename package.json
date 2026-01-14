@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "pages:deploy": "echo 'out'",
+    "build": "next build && cp -r out dist",
     "start": "next start",
     "lint": "eslint"
   },
