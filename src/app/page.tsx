@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import anime from 'animejs';
-import { Container, Layers, Box, Network, Server, Rocket, Database, Code, GitBranch, Workflow, Cloud } from 'lucide-react';
+import { Container, Layers, Box, Network, Server, Rocket, Database, Code, GitBranch, Workflow, Cloud, Activity, BarChart3, FileText } from 'lucide-react';
 
 interface TutorialOption {
   id: string;
@@ -46,6 +46,22 @@ const tutorials: TutorialOption[] = [
     description: '코드로 인프라 관리하기',
     icon: Cloud,
     href: '/iac',
+    color: 'secondary',
+  },
+  {
+    id: 'monitoring',
+    title: '모니터링',
+    description: '시스템 모니터링과 관찰성 마스터하기',
+    icon: Activity,
+    href: '/monitoring',
+    color: 'primary',
+  },
+  {
+    id: 'logging',
+    title: '로깅',
+    description: '로그 수집, 분석 및 검색 시스템 마스터하기',
+    icon: FileText,
+    href: '/logging',
     color: 'secondary',
   },
 ];
@@ -190,6 +206,8 @@ export default function Home() {
       <FloatingIcon Icon={Rocket} className="top-[40%] left-[5%]" delay={1600} />
       <FloatingIcon Icon={GitBranch} className="top-[50%] right-[8%]" delay={2000} />
       <FloatingIcon Icon={Cloud} className="top-[60%] left-[15%]" delay={2400} />
+      <FloatingIcon Icon={Activity} className="top-[55%] right-[20%]" delay={2800} />
+      <FloatingIcon Icon={FileText} className="top-[65%] left-[25%]" delay={3200} />
 
       {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
