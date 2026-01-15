@@ -87,12 +87,14 @@ export function GitHubActionsSimulator() {
         ? undefined 
         : failureReasons[stepId]?.[Math.floor(Math.random() * failureReasons[stepId].length)] || '알 수 없는 오류';
       
+      const newStatus: 'success' | 'failed' = success ? 'success' : 'failed';
+      
       setWorkflow(prev => 
         prev.map((step, idx) => 
           idx === i 
             ? { 
                 ...step, 
-                status: (success ? 'success' : 'failed') as const,
+                status: newStatus,
                 failureReason: success ? undefined : failureReason
               }
             : step
