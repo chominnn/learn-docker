@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import anime from 'animejs';
-import { Container, Layers, Box, Network, Server, Rocket, Database, Code } from 'lucide-react';
+import { Container, Layers, Box, Network, Server, Rocket, Database, Code, GitBranch, Workflow, Cloud } from 'lucide-react';
 
 interface TutorialOption {
   id: string;
@@ -30,6 +30,22 @@ const tutorials: TutorialOption[] = [
     description: '컨테이너 오케스트레이션 마스터하기',
     icon: Box,
     href: '/kubernetes',
+    color: 'secondary',
+  },
+  {
+    id: 'cicd',
+    title: 'CI/CD',
+    description: '지속적 통합과 배포 자동화 마스터하기',
+    icon: GitBranch,
+    href: '/cicd',
+    color: 'primary',
+  },
+  {
+    id: 'iac',
+    title: 'IaC',
+    description: '코드로 인프라 관리하기',
+    icon: Cloud,
+    href: '/iac',
     color: 'secondary',
   },
 ];
@@ -172,6 +188,8 @@ export default function Home() {
       <FloatingIcon Icon={Network} className="bottom-[30%] left-[8%]" delay={800} />
       <FloatingIcon Icon={Server} className="bottom-[25%] right-[12%]" delay={1200} />
       <FloatingIcon Icon={Rocket} className="top-[40%] left-[5%]" delay={1600} />
+      <FloatingIcon Icon={GitBranch} className="top-[50%] right-[8%]" delay={2000} />
+      <FloatingIcon Icon={Cloud} className="top-[60%] left-[15%]" delay={2400} />
 
       {/* Gradient orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
@@ -198,7 +216,7 @@ export default function Home() {
           </div>
 
           {/* Tutorial Cards */}
-          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               const isPrimary = tutorial.color === 'primary';
